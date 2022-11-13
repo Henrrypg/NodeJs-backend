@@ -41,7 +41,7 @@ resource "aws_codebuild_project" "tf-plan" {
  }
  source {
      type   = "CODEPIPELINE"
-     buildspec = "buildspec/buildspec.yml" 
+     buildspec = "terraform/buildspec/buildspec.yml"
  }
 }
 
