@@ -5,11 +5,11 @@
     "cpu": "256",
     
     "taskRoleArn": "arn:aws:iam::083762234070:role/ecsTaskExecutionRole",
-    "family":"backend", 
+    "family":"%APPNAME%", 
     "containerDefinitions": [
         { 
-            "name": "backend",
-            "image": "url/",
+            "name": "%APPNAME%",
+            "image": "%ECRIMAGEN%",
             "cpu": 256,
             "memoryReservation": 512,
           
@@ -17,7 +17,7 @@
                 "logDriver": "awslogs",
             
                 "options": {
-                    "awslogs-group": "backend",
+                    "awslogs-group": "%APPNAME%",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -25,9 +25,9 @@
            
             "portMappings": [
                 {
-                    "hostPort": 3000,
+                    "hostPort": %IMAGEPORT%,
                     "protocol": "tcp",
-                    "containerPort": 3000
+                    "containerPort": %IMAGEPORT%
                 }
             ],         
             "environment": [],          
